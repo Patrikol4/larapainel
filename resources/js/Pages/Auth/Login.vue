@@ -34,7 +34,7 @@
                 </inertia-link>
 
                 <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Login
+                    Entrar no sistema
                 </jet-button>
             </div>
         </form>

@@ -9,6 +9,9 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+// Mongodb import above
+use Jenssegers\Mongodb\Eloquent\Model;
+// 
 
 class User extends Authenticatable
 {
