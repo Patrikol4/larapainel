@@ -27,3 +27,21 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
+
+// Routes para Products
+Route::controller(ProductsController::class)->group(function () {
+    Route::get('/products/{id}', 'show');
+    Route::get('/products/all', 'index');
+    Route::post('/products', 'store');
+    Route::put('/products/{id}', 'update');
+    Route::delete('/products/{id}', 'delete');
+});
+
+// Routes para Deliveries
+Route::controller(DeliveriesController::class)->group(function () {
+    Route::get('/deliveries/{id}', 'show');
+    Route::get('/deliveries/all', 'index');
+    Route::post('/deliveries', 'store');
+    Route::put('/deliveries', 'update');
+    Route::delete('/deliveries/{id}', 'delete');
+});
