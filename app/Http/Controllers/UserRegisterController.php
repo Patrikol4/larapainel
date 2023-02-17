@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegisterRequest;
 
-class UserRegisterController extends Controller
+class RegisterController extends Controller
 {
     public function show()
     {

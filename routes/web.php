@@ -15,33 +15,24 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::group(['namespace' => 'App\Http\Controllers'], function () 
+{
+    Route::get('/', 'DashController@index')->name('dash.index');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');
+    Route::group(['middleware' => ['guest']], function (){
+        // Register routes
+        
+        Route::get('/register', 'RegisterController@show')->name('register.show');
+        Route::post('/register', 'RegisterController@register')->name('register.perform');
 
-// Routes para Products
-Route::controller(ProductsController::class)->group(function () {
-    Route::get('/products/{id}', 'show');
-    Route::get('/products/all', 'index');
-    Route::post('/products', 'store');
-    Route::put('/products/{id}', 'update');
-    Route::delete('/products/{id}', 'delete');
-});
+    });
 
-// Routes para Deliveries
-Route::controller(DeliveriesController::class)->group(function () {
-    Route::get('/deliveries/{id}', 'show');
-    Route::get('/deliveries/all', 'index');
-    Route::post('/deliveries', 'store');
-    Route::put('/deliveries', 'update');
-    Route::delete('/deliveries/{id}', 'delete');
+    Route::group(['middleware' => ['auth']], function() {
+        /**
+         * Logout Routes
+         */
+        Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+    });
+
+
 });
