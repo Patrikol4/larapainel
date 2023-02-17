@@ -20,14 +20,14 @@
       @auth
         {{auth()->user()->name}}
         <div class="text-end">
-          <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">Logout</a>
+          <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">Sair</a>
         </div>
       @endauth
 
       @guest
         <div class="text-end">
-          <a href="{{ route('login.perform') }}" class="btn btn-outline-light me-2">Login</a>
-          <a href="{{ route('register.perform') }}" class="btn btn-warning">Sign-up</a>
+          <a href="{{ route('login.perform') }}" class="btn btn-outline-light me-2">Entrar</a>
+          <a href="{{ route('register.perform') }}" class="btn btn-warning">Criar Conta</a>
         </div>
       @endguest
     </div>

@@ -4,13 +4,12 @@
     <div class="bg-light p-5 rounded">
         @auth
         <h1>Dashboard</h1>
-        <p class="lead">Only authenticated users can access this section.</p>
-        <a class="btn btn-lg btn-primary" href="https://codeanddeploy.com" role="button">View more tutorials here &raquo;</a>
+        <p class="lead">Somente usuários logado podem ter acesso a este conteúdo.</p>
         @endauth
 
         @guest
-        <h1>Homepage</h1>
-        <p class="lead">Your viewing the home page. Please login to view the restricted data.</p>
+        <h1>Home</h1>
+        <p class="lead">Faça Login para ter acesso ao nosso sistema</p>
         @endguest
     </div>
 @endsection

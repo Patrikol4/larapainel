@@ -6,10 +6,10 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.87.0">
-    <title>Fixed top navbar example · Bootstrap v5.1</title>
+    <title>LaraPainel</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{!! url('assets/bootstrap/css/bootstrap.min.css') !!}" rel="stylesheet">
+    <link href="{!! url('assets/css/bootstrap.min.css') !!}" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -29,7 +29,7 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="{!! url('assets/css/app.css') !!}" rel="stylesheet">
+    <link href="{!! url('css/app.css') !!}" rel="stylesheet">
 </head>
 <body>
     
@@ -39,7 +39,7 @@
         @yield('content')
     </main>
 
-    <script src="{!! url('assets/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
+    <script src="{!! url('assets/js/bootstrap.bundle.min.js') !!}"></script>
       
   </body>
 </html>
