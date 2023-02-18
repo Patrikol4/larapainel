@@ -12,9 +12,9 @@ class LoginController extends Controller
     return view('auth.login');
    }
 
-   public function login(LoginRequest, $request)
+   public function login(LoginRequest $request)
    {
-    $credentials => $request->getCredentials();
+    $credentials -> $request->getCredentials();
 
     if(!Auth::validate($credentials)):
         return redirect()->to('login')
