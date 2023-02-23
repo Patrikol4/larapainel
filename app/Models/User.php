@@ -1,33 +1,24 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Jenssegers\Mongodb\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Fortify\TwoFactorAuthenticatable;
-use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Sanctum\HasApiTokens;
-// Mongodb import above
-use Jenssegers\Mongodb\Eloquent\Model;
-// 
+use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
+use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
+use Illuminate\Contracts\Auth\Authenticatable;
 
-class User extends Authenticatable
+class User extends Eloquent implements Authenticatable
 {
-    use HasFactory, Notifiable;
+    use AuthenticatableTrait;
+
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
-     * @var bool
      */
     protected $fillable = [
-        'name',
-        'email',
-        'username',
-        'password',
+        'name', 'email', 'password',
     ];
 
     /**
@@ -36,15 +27,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
-        'two_factor_recovery_codes',
-        'two_factor_secret',
+        'password', 'remember_token',
     ];
-
-    public function setPasswordAttribute($value){
-        $this->attributes['password'] = bcrypt($value)
-    }
-
-  
 }
